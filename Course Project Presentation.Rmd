@@ -1,0 +1,52 @@
+---
+title: 'Developing Data Projects: Course Project'
+author: "Miguel Adarlo"
+date: "2023-08-09"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## Introduction
+
+The iris dataset has the measurements of 50 flowers from 3 species: *Iris setosa*, *versicolor*, and *virginica*. These measurements are in centimeters, and measure the following variables: sepal length and width, and petal length and width.
+
+The goal of this project is to build a Shiny App that can plot these variables, as well as provide a regression line per species.
+
+## Example Graph
+```{r libraries to load}
+library(ggplot2)
+library(plotly)
+data(iris)
+```
+
+``` {r sample plot}
+irisPlot <- ggplot(data = iris, aes(x = Petal.Length, y = Sepal.Length, color = Species)) +
+        geom_point() +
+        geom_smooth(method = lm, formula=y~x)
+
+ggplotly(irisPlot)
+```
+You can hover over the graph to see specific points.
+
+## How to use
+
+The side panel has two sets of radio buttons. The first set picks the variable to be plotted on the x-axis. The second set picks the variable to be plotted on the y-axis.
+
+The checkbox selects if the regression lines will be shown or not. 
+
+In order to update the plot, you must press the Create Plot button first.
+
+## Links related to the project
+
+Shiny App:
+<https://irj3fx-miguel0antonio-adarlo.shinyapps.io/Developing_Data_Products-Course_Project/>
+
+GitHub for Project:
+<https://github.com/Miguel-Adarlo/Course-Project-Developing-Data-Products-Week-4>
+
+
+
+
